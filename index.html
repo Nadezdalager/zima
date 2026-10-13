@@ -1511,8 +1511,19 @@
     .mentor-role { display:block; color:#58c5ff; font-size:12px; line-height:1.5; font-weight:800; text-transform:uppercase; margin-bottom:10px; }
     .mentor-card p { color:#b0c2d8; font-size:14px; line-height:1.7; }
     .team-footer-label { margin-top:34px; text-align:center; color:var(--text-muted); font-size:13px; }
-    @media (max-width:1024px) { .project-steps { grid-template-columns:repeat(2,minmax(0,1fr)); } .project-gallery { grid-template-columns:repeat(2,minmax(0,1fr)); } }
-    @media (max-width:768px) { .project-steps,.project-gallery,.mentor-grid { grid-template-columns:minmax(0,1fr); } .project-photo-placeholder { aspect-ratio:4 / 3; } .project-step { min-height:0; padding:23px; } .mentor-card { padding:24px 20px 24px 64px; } .mentor-card::before { left:19px; top:27px; width:30px; height:30px; } .team-intro { margin-top:-18px; } }
+
+    /* МАСТЕРСКИЕ: название, символ и отдельное место для фотографии */
+    .workshops-section { background:linear-gradient(180deg,#0b1b2e 0%,#091626 100%); }
+    .workshops-deck { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+    .workshop-card { min-width:0; overflow:hidden; border-radius:22px; background:rgba(255,255,255,.065); border:1px solid rgba(255,255,255,.13); transition:transform .25s ease,border-color .25s ease; }
+    .workshop-card:hover { transform:translateY(-4px); border-color:var(--color-primary); }
+    .workshop-heading { display:flex; align-items:center; gap:13px; min-height:92px; padding:22px 24px; }
+    .workshop-icon { display:flex; align-items:center; justify-content:center; flex:0 0 48px; width:48px; height:48px; border-radius:15px; background:linear-gradient(135deg,rgba(0,194,255,.2),rgba(150,110,255,.28)); font-size:27px; }
+    .workshop-card h3 { color:#fff; font-size:18px; line-height:1.35; margin:0; }
+    .workshop-photo { width:100%; aspect-ratio:4 / 3; overflow:hidden; background:linear-gradient(135deg,rgba(0,194,255,.09),rgba(150,110,255,.10)); border-top:1px solid rgba(255,255,255,.09); }
+    .workshop-photo img { display:block; width:100%; height:100%; object-fit:cover; }
+    @media (max-width:1024px) { .project-steps { grid-template-columns:repeat(2,minmax(0,1fr)); } .project-gallery { grid-template-columns:repeat(2,minmax(0,1fr)); } .workshops-deck { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:768px) { .project-steps,.project-gallery,.mentor-grid { grid-template-columns:minmax(0,1fr); } .project-photo-placeholder { aspect-ratio:4 / 3; } .project-step { min-height:0; padding:23px; } .mentor-card { padding:24px 20px 24px 64px; } .mentor-card::before { left:19px; top:27px; width:30px; height:30px; } .team-intro { margin-top:-18px; } .workshop-heading { min-height:80px; padding:18px 20px; } }
 
     /* ----------------------------------------------------
        АДАПТАЦИЯ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ
@@ -1860,6 +1871,7 @@
         <nav class="main-nav" id="mainNav">
           <a href="#story" onclick="closeMobileNav()">О смене</a>
           <a href="#projects" onclick="closeMobileNav()">Проектная часть</a>
+          <a href="#workshops" onclick="closeMobileNav()">Мастерские</a>
           <a href="#schedule" onclick="closeMobileNav()">Распорядок дня</a>
           <a href="#kostroma" onclick="closeMobileNav()">Кострома</a>
           <a href="#base" onclick="closeMobileNav()">База и фото</a>
@@ -2042,6 +2054,28 @@
         <div class="project-photo-placeholder"><img src="project_photo_2.jpg" alt="Фото проектной работы 2" onerror="this.parentElement.style.display='none'"></div>
         <div class="project-photo-placeholder"><img src="project_photo_3.jpg" alt="Фото проектной работы 3" onerror="this.parentElement.style.display='none'"></div>
         <div class="project-photo-placeholder"><img src="project_photo_4.jpg" alt="Фото проектной работы 4" onerror="this.parentElement.style.display='none'"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- МАСТЕРСКИЕ -->
+  <section id="workshops" class="workshops-section">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-eyebrow">Пробуем новое и раскрываем таланты</span>
+        <h2 class="sec-title">Мастерские</h2>
+        <p class="sec-desc">Участники смогут прокачать свои навыки, попробовать себя в разных направлениях и открыть новые увлечения.</p>
+      </div>
+      <div class="workshops-deck">
+        <article class="workshop-card"><div class="workshop-heading"><span class="workshop-icon">🎭</span><h3>Театр</h3></div><div class="workshop-photo"><img src="workshop_theatre.jpg" alt="Фото мастерской «Театр»" loading="lazy" onerror="this.style.display='none'"></div></article>
+        <article class="workshop-card"><div class="workshop-heading"><span class="workshop-icon">🧵</span><h3>Рукоделие</h3></div><div class="workshop-photo"><img src="workshop_handcraft.jpg" alt="Фото мастерской «Рукоделие»" loading="lazy" onerror="this.style.display='none'"></div></article>
+        <article class="workshop-card"><div class="workshop-heading"><span class="workshop-icon">💡</span><h3>Тренинг предпринимательства</h3></div><div class="workshop-photo"><img src="workshop_business.jpg" alt="Фото тренинга предпринимательства" loading="lazy" onerror="this.style.display='none'"></div></article>
+        <article class="workshop-card"><div class="workshop-heading"><span class="workshop-icon">🧭</span><h3>Туризм</h3></div><div class="workshop-photo"><img src="workshop_tourism.jpg" alt="Фото туристических занятий" loading="lazy" onerror="this.style.display='none'"></div></article>
+        <article class="workshop-card"><div class="workshop-heading"><span class="workshop-icon">💃</span><h3>Студия танца</h3></div><div class="workshop-photo"><img src="workshop_dance.jpg" alt="Фото студии танца" loading="lazy" onerror="this.style.display='none'"></div></article>
+        <article class="workshop-card"><div class="workshop-heading"><span class="workshop-icon">🎬</span><h3>Медиа</h3></div><div class="workshop-photo"><img src="workshop_media.jpg" alt="Фото медиа-студии" loading="lazy" onerror="this.style.display='none'"></div></article>
+        <article class="workshop-card"><div class="workshop-heading"><span class="workshop-icon">🏒</span><h3>Хоккей</h3></div><div class="workshop-photo"><img src="workshop_hockey.jpg" alt="Фото хоккейной мастерской" loading="lazy" onerror="this.style.display='none'"></div></article>
+        <article class="workshop-card"><div class="workshop-heading"><span class="workshop-icon">🎤</span><h3>Вокал</h3></div><div class="workshop-photo"><img src="workshop_vocal.jpg" alt="Фото занятий вокалом" loading="lazy" onerror="this.style.display='none'"></div></article>
       </div>
     </div>
   </section>
